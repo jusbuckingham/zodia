@@ -1,22 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
 const { Sign } = require('../models');
-
-Sign.create({
-    sign_name: '',
-    description: '',
-    background: '',
-    dates: ''
-})
-.then(function(newSign){
-    console.log('NEW SIGN', newSign.toJSON());
-})
-.catch(function(error) {
-    console.log('ERROR', error);
-})
-
-
 
 /**
  * ============================
@@ -33,7 +17,7 @@ router.get('/', function(req, res) {
     .then(function(signList) {
         console.log('FOUND ALL sign', signList);
         // res.json({ sign: signList });
-        res.render('sign/index', { signs: signList })
+        res.render('signs/index', { signs: signList })
     })
     .catch(function(err) {
         console.log('ERROR', err);
@@ -42,7 +26,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/new', function(req, res) {
-    res.render('sign/new');
+    res.render('signs/new');
 });
 
 // GET to Edit page
@@ -52,7 +36,7 @@ router.get('/edit/:id', function(req, res) {
     .then(function(sign) {
         if (sign) {
             sign = sign.toJSON();
-            res.render('sign/edit', { sign });
+            res.render('signs/edit', { sign });
         } else {
             console.log('This sign does not exist');
             // render a 404 page
@@ -75,7 +59,7 @@ router.get('/:id', function(req, res) {
         if (sign) {
             sign = sign.toJSON();
             console.log('IS THIS A sign?', sign);
-            res.render('sign/show', { sign });
+            res.render('signs/show', { sign });
         } else {
             console.log('This sign does not exist');
             // render a 404 page
@@ -102,7 +86,7 @@ router.post('/', function(req, res) {
     .then(function(newsign) {
         console.log('NEW sign', newsign.toJSON());
         newsign = newsign.toJSON();
-        res.redirect(`/sign/${newsign.id}`);
+        res.redirect(`/signs/${newsign.id}`);
     })
     .catch(function(error) {
         console.log('ERROR', error);
@@ -125,7 +109,7 @@ router.put('/:id', function(req, res) {
     }, { where: { id: signIndex } })
     .then(function(response) {
         console.log('AFTER UPDATE', response);
-        res.redirect(`/sign/${signIndex}`);
+        res.redirect(`/signs/${signIndex}`);
     })
     .catch(function(error) {
         console.log('ERROR', error);
@@ -142,7 +126,7 @@ router.delete('/:id', function(req, res) {
     Sign.destroy({ where: { id: signIndex } })
     .then(function(response) {
         console.log('sign DELETED', response);
-        res.redirect('/sign');
+        res.redirect('/signs');
     })
     .catch(function(error) {
         console.log('ERROR', error);
@@ -151,3 +135,24 @@ router.delete('/:id', function(req, res) {
 });
 
 module.exports = router;
+
+
+
+// router.create({
+//     sign_name: 'Aries',
+//     description: '(Latin for "ram") is the first astrological sign in the zodiac, spanning the first 30 degrees of celestial longitude, and originates from the constellation of the same name. Under the tropical zodiac, the Sun transits this sign from approximately March 20 to April 21 each year. This time duration is exactly the first month of the Solar Hijri calendar (Arabic Hamal/Persian Farvardin/Wray).',
+//     background: 'Aries is the first fire sign in the zodiac, the other fire signs being Leo and Sagittarius. Individuals born between these dates, depending on which system of astrology they subscribe to, may be called Arians or Ariens.  The color for Aries is red.  In astrology, Aries is the cardinal sign of the fire trigon. It is one of the six positive signs.',
+//     dates: 'March 20 - April 19'
+// })
+// .then(function(newSign){
+//     console.log('NEW SIGN', newSign.toJSON());
+// })
+// .catch(function(error) {
+//     console.log('ERROR', error);
+// })
+
+
+
+
+
+

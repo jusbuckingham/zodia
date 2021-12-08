@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Signs</title>
+</head>
+<body>
+    <% for( let index = 0; index < signs.length; index++ ) { %>
+        <% let a = signs[index]; %> 
+        <% a = a.toJSON() %>
+        <p><%= a.sign_name %></p>
+        <a href="/signs/<%= a.id %>">View Signs</a>
+        <hr>
+    <% } %>
+</body>
+</html>
