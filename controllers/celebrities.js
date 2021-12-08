@@ -4,20 +4,20 @@ const { Celebrity } = require('../models');
 
 /**
  * ============================
- * celebrity
+ * Celebrity
  * ============================
 */
 /**
  * GET ROUTES
  * */ 
-// /celebrity route
+// /celebrities route
 router.get('/', function(req, res) {
-    // get all celebrity
-    celebrity.findAll()
-    .then(function(celebrityList) {
-        console.log('FOUND ALL celebrity', celebrityList);
-        // res.json({ celebrity: celebrityList });
-        res.render('celebrity/index', { celebritys: celebrityList })
+    // get all celebrities
+    Celebrity.findAll()
+    .then(function(celebritiesList) {
+        console.log('FOUND ALL celebrities', celebritiesList);
+        // res.json({ celebrities: celebritiesList });
+        res.render('celebrities/index', { celebrities: celebritiesList })
     })
     .catch(function(err) {
         console.log('ERROR', err);
@@ -26,21 +26,21 @@ router.get('/', function(req, res) {
 });
 
 router.get('/new', function(req, res) {
-    res.render('celebrity/new');
+    res.render('celebrities/new');
 });
 
 // GET to Edit page
 router.get('/edit/:id', function(req, res) {
-    let celebrityIndex = Number(req.params.id);
-    celebrity.findByPk(celebrityIndex)
-    .then(function(celebrity) {
-        if (celebrity) {
-            celebrity = celebrity.toJSON();
-            res.render('celebrity/edit', { celebrity });
+    let celebritiesIndex = Number(req.params.id);
+    Celebrity.findByPk(celebritiesIndex)
+    .then(function(celebrities) {
+        if (celebrities) {
+            celebrities = celebrities.toJSON();
+            res.render('celebrities/edit', { celebrities });
         } else {
-            console.log('This celebrity does not exist');
+            console.log('This celebrities does not exist');
             // render a 404 page
-            res.render('404', { message: 'celebrity does not exist' });
+            res.render('404', { message: 'celebrities does not exist' });
         }
     })
     .catch(function(error) {
@@ -52,18 +52,18 @@ router.get('/edit/:id', function(req, res) {
 
 router.get('/:id', function(req, res) {
     console.log('PARAMS', req.params);
-    let celebrityIndex = Number(req.params.id);
-    console.log('IS THIS A NUMBER?', celebrityIndex);
-    celebrity.findByPk(celebrityIndex)
-    .then(function(celebrity) {
-        if (celebrity) {
-            celebrity = celebrity.toJSON();
-            console.log('IS THIS A celebrity?', celebrity);
-            res.render('celebrity/show', { celebrity });
+    let celebritiesIndex = Number(req.params.id);
+    console.log('IS THIS A NUMBER?', celebritiesIndex);
+    Celebrity.findByPk(celebritiesIndex)
+    .then(function(celebrities) {
+        if (celebrities) {
+            celebrities = celebrities.toJSON();
+            console.log('IS THIS A celebrities?', celebrities);
+            res.render('celebrities/show', { celebrities });
         } else {
-            console.log('This celebrity does not exist');
+            console.log('This celebrities does not exist');
             // render a 404 page
-            res.render('404', { message: 'celebrity does not exist' });
+            res.render('404', { message: 'celebrities does not exist' });
         }
     })
     .catch(function(error) {
@@ -77,20 +77,20 @@ router.get('/:id', function(req, res) {
 
 router.post('/', function(req, res) {
     console.log('SUBMITTED FORM', req.body);
-    celebrity.create({
+    Celebrity.create({
         title: req.body.title,
         length: Number(req.body.length),
         tracks: Number(req.body.tracks),
         year: Number(req.body.year)
     })
-    .then(function(newcelebrity) {
-        console.log('NEW celebrity', newcelebrity.toJSON());
-        newcelebrity = newcelebrity.toJSON();
-        res.redirect(`/celebrity/${newcelebrity.id}`);
+    .then(function(newcelebrities) {
+        console.log('NEW celebrities', newcelebrities.toJSON());
+        newcelebrities = newcelebrities.toJSON();
+        res.redirect(`/celebrities/${newcelebrities.id}`);
     })
     .catch(function(error) {
         console.log('ERROR', error);
-        res.render('404', { message: 'celebrity was not added please try again...' });
+        res.render('404', { message: 'celebrities was not added please try again...' });
     });
     // res.redirect()
 });
@@ -100,16 +100,16 @@ router.post('/', function(req, res) {
 router.put('/:id', function(req, res) {
     console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
     console.log('HERE IS THE ID', req.params.id);
-    let celebrityIndex = Number(req.params.id);
-    celebrity.update({
+    let celebritiesIndex = Number(req.params.id);
+    Celebrity.update({
         title: req.body.title,
         length: Number(req.body.length),
         tracks: Number(req.body.tracks),
         year: Number(req.body.year)
-    }, { where: { id: celebrityIndex } })
+    }, { where: { id: celebritiesIndex } })
     .then(function(response) {
         console.log('AFTER UPDATE', response);
-        res.redirect(`/celebrity/${celebrityIndex}`);
+        res.redirect(`/celebrities/${celebritiesIndex}`);
     })
     .catch(function(error) {
         console.log('ERROR', error);
@@ -122,15 +122,15 @@ router.put('/:id', function(req, res) {
  * */ 
 router.delete('/:id', function(req, res) {
     console.log('ID HERE', req.params.id);
-    let celebrityIndex = Number(req.params.id);
-    celebrity.destroy({ where: { id: celebrityIndex } })
+    let celebritiesIndex = Number(req.params.id);
+    Celebrity.destroy({ where: { id: celebritiesIndex } })
     .then(function(response) {
-        console.log('celebrity DELETED', response);
-        res.redirect('/celebrity');
+        console.log('celebrities DELETED', response);
+        res.redirect('/celebrities');
     })
     .catch(function(error) {
         console.log('ERROR', error);
-        res.render('404', { message: 'celebrity was not deleted, please try again...'});
+        res.render('404', { message: 'celebrities was not deleted, please try again...'});
     })
 });
 

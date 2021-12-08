@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Celebrities</title>
+</head>
+<body>
+    <% for( let index = 0; index < celebrities.length; index++ ) { %>
+        <% let a = celebrities[index]; %> 
+        <% a = a.toJSON() %>
+        <p><%= a.name %></p>
+        <a href="/celebrities/<%= a.id %>">View Celebrities</a>
+        <hr>
+    <% } %>
+</body>
+</html>

@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify 2.0</title>
+    <title>Zodia</title>
 </head>
 <body>
-    <a href="/albums">View All Albums</a>
-    <h1><%= album.title %></h1>
-    <h2><%= album.year %> </h2>
-    <h3><%= album.length %> </h3>
-    <h4><%= album.tracks %> </h4>
-    <a href="/albums/edit/<%= album.id %>">Edit</a>
+    <a href="/signs">View All signs</a>
+    <h1><%= sign.sign_name %></h1>
+    <h2><%= sign.description %> </h2>
+    <h3><%= sign.background %> </h3>
+    <h4><%= sign.dates %> </h4>
+    <a href="/signs/edit/<%= sign.id %>">Edit</a>
 
-    <form method="POST" action="/albums/<%= album.id %>/?_method=DELETE">
-        <input type="submit" value="Delete Album">
+    <form method="POST" action="/signs/<%= sign.id %>/?_method=DELETE">
+        <input type="submit" value="Delete sign">
     </form>
 </body>
 </html>
