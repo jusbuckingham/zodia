@@ -1,4 +1,4 @@
-# `Express Authentication`
+# `ZODIA`
 
 Express authentication template using Passport + Flash messages + custom middleware
 
