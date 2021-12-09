@@ -9,10 +9,9 @@
 <body>
     <h1>Celebrities</h1>
     <a href="/celebrities">View All celebrities</a>
-    <h1><%= celebrity.title %></h1>
-    <h2><%= celebrity.year %> </h2>
-    <h3><%= celebrity.length %> </h3>
-    <h4><%= celebrity.tracks %> </h4>
+    <h1><%= celebrity.name %></h1>
+    <h2><%= celebrity.dob %> </h2>
+    <h3><%= celebrity.sign_name %> </h3>
     <a href="/celebrities/edit/<%= celebrity.id %>">Edit</a>
 
     <form method="POST" action="/celebrities/<%= celebrity.id %>/?_method=DELETE">

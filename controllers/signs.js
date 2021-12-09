@@ -85,7 +85,7 @@ router.post('/', function(req, res) {
     })
     .then(function(newsign) {
         console.log('NEW sign', newsign.toJSON());
-        newSign = newSign.toJSON();
+        let newSign = newSign.toJSON();
         res.redirect(`/signs/${newSign.id}`);
     })
     .catch(function(error) {
