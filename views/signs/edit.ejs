@@ -1,14 +1,14 @@
 <form method="POST" action="/signs/<%= sign.id %>/?_method=PUT">
-    <label for="sign_name">sign_name</label>
+    <label for="sign_name">Sign</label>
     <input type="text" name="sign_name" value="<%= sign.sign_name %> ">
   
-    <label for="description">description</label>
+    <label for="description">Description</label>
     <input id="description" type="text" name="description" value="<%= sign.description %> ">>
 
-    <label for="background">background</label>
+    <label for="background">Background</label>
     <input id="background" type="text" name="background" value="<%= sign.background %> ">>
 
-    <label for="dates">dates</label>
+    <label for="dates">Dates</label>
     <input id="dates" type="text" name="dates" value="<%= sign.dates %> ">>
   
     <input type="submit">

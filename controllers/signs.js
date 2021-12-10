@@ -47,7 +47,7 @@ router.get('/edit/:id', function(req, res) {
         console.log('ERROR', error);
     });
     
-})
+});
 
 
 router.get('/:id', function(req, res) {
@@ -83,9 +83,9 @@ router.post('/', function(req, res) {
         background: req.body.background,
         dates: req.body.dates
     })
-    .then(function(newsign) {
-        console.log('NEW sign', newsign.toJSON());
-        let newSign = newSign.toJSON();
+    .then(function(newSign) {
+        console.log('NEW SIGN', newSign.toJSON());
+        newSign = newSign.toJSON();
         res.redirect(`/signs/${newSign.id}`);
     })
     .catch(function(error) {
@@ -100,7 +100,7 @@ router.post('/', function(req, res) {
 router.put('/:id', function(req, res) {
     console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
     console.log('HERE IS THE ID', req.params.id);
-    let signIndex = req.params.id;
+    let signIndex = Number(req.params.id);
     Sign.update({
         sign_name: req.body.sign_name,
         description: req.body.description,
@@ -122,7 +122,7 @@ router.put('/:id', function(req, res) {
  * */ 
 router.delete('/:id', function(req, res) {
     console.log('ID HERE', req.params.id);
-    let signIndex = req.params.id;
+    let signIndex = Number(req.params.id);
     Sign.destroy({ where: { id: signIndex } })
     .then(function(response) {
         console.log('sign DELETED', response);

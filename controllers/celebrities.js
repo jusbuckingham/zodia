@@ -11,13 +11,13 @@ const { Celebrity } = require('../models');
  * GET ROUTES
  * */
 // /celebrities route
-router.get('/', function (req, res) {
+router.get('/', function(req, res) {
     // get all celebrities
     Celebrity.findAll()
-        .then(function (celebritiesList) {
-            console.log('FOUND ALL celebrities', celebritiesList);
+        .then(function(celebrityList) {
+            console.log('FOUND ALL celebrities', celebrityList);
             // res.json({ celebrities: celebritiesList });
-            res.render('celebrities/index', { celebrities: celebritiesList })
+            res.render('celebrities/index', { celebrities: celebrityList })
         })
         .catch(function (err) {
             console.log('ERROR', err);
@@ -33,10 +33,10 @@ router.get('/new', function (req, res) {
 router.get('/edit/:id', function (req, res) {
     let celebritiesIndex = Number(req.params.id);
     Celebrity.findByPk(celebritiesIndex)
-        .then(function (celebrities) {
-            if (celebrities) {
-                celebrities = celebrities.toJSON();
-                res.render('celebrities/edit', { celebrities });
+        .then(function(celebrity) {
+            if (celebrity) {
+                celebrity = celebrity.toJSON();
+                res.render('celebrities/edit', { celebrity });
             } else {
                 console.log('This celebrities does not exist');
                 // render a 404 page
@@ -52,14 +52,14 @@ router.get('/edit/:id', function (req, res) {
 
 router.get('/:id', function (req, res) {
     console.log('PARAMS', req.params);
-    let celebritiesIndex = Number(req.params.id);
-    console.log('IS THIS A NUMBER?', celebritiesIndex);
-    Celebrity.findByPk(celebritiesIndex)
-        .then(function (celebrities) {
-            if (celebrities) {
-                celebrities = celebrities.toJSON();
-                console.log('IS THIS A celebrities?', celebrities);
-                res.render('celebrities/show', { celebrities });
+    let celebrityIndex = Number(req.params.id);
+    console.log('IS THIS A NUMBER?', celebrityIndex);
+    Celebrity.findByPk(celebrityIndex)
+        .then(function(celebrity) {
+            if (celebrity) {
+                celebrity = celebrity.toJSON();
+                console.log('IS THIS A celebrity?', celebrity);
+                res.render('celebrities/show', { celebrity });
             } else {
                 console.log('This celebrities does not exist');
                 // render a 404 page
@@ -82,10 +82,10 @@ router.post('/', function (req, res) {
         dob: req.body.dob,
         sign_name: req.body.sign_name
     })
-        .then(function (newCelebrities) {
-            console.log('NEW celebrities', newCelebrities.toJSON());
-            newcelebrities = newCelebrities.toJSON();
-            res.redirect(`/celebrities/${newCelebrities.id}`);
+        .then(function (newCelebrity) {
+            console.log('NEW celebrities', newCelebrity.toJSON());
+            newCelebrity = newCelebrity.toJSON();
+            res.redirect(`/celebrities/${newCelebrity.id}`);
         })
         .catch(function (error) {
             console.log('ERROR', error);
@@ -99,15 +99,15 @@ router.post('/', function (req, res) {
 router.put('/:id', function (req, res) {
     console.log('EDIT FORM DATA THAT WAS SUBMITTED', req.body);
     console.log('HERE IS THE ID', req.params.id);
-    let celebritiesIndex = Number(req.params.id);
+    let celebrityIndex = Number(req.params.id);
     Celebrity.update({
         name: req.body.name,
         dob: req.body.dob,
-        sign_name: req.body.sign_name,
-    }, { where: { id: celebritiesIndex } })
+        sign_name: req.body.sign_name
+    }, { where: { id: celebrityIndex } })
         .then(function (response) {
             console.log('AFTER UPDATE', response);
-            res.redirect(`/celebrities/${celebritiesIndex}`);
+            res.redirect(`/celebrities/${celebrityIndex}`);
         })
         .catch(function (error) {
             console.log('ERROR', error);
@@ -120,10 +120,10 @@ router.put('/:id', function (req, res) {
  * */
 router.delete('/:id', function (req, res) {
     console.log('ID HERE', req.params.id);
-    let celebritiesIndex = Number(req.params.id);
-    Celebrity.destroy({ where: { id: celebritiesIndex } })
+    let celebrityIndex = Number(req.params.id);
+    Celebrity.destroy({ where: { id: celebrityIndex } })
         .then(function (response) {
-            console.log('celebrities DELETED', response);
+            console.log('CELEBRITY DELETED', response);
             res.redirect('/celebrities');
         })
         .catch(function (error) {
