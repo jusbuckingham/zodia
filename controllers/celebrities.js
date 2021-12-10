@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const axios = require("axios");
 const { Celebrity } = require('../models');
 
 /**
@@ -14,12 +15,12 @@ const { Celebrity } = require('../models');
 router.get('/', function (req, res) {
     // get all celebrities
     Celebrity.findAll()
-        .then(function (celebrityList) {
+        .then(function(celebrityList) {
             console.log('FOUND ALL celebrities', celebrityList);
             // res.json({ celebrities: celebritiesList });
             res.render('celebrities/index', { celebrities: celebrityList })
         })
-        .catch(function (err) {
+        .catch(function(err) {
             console.log('ERROR', err);
             res.json({ message: 'Error occured, please try again....' });
         });
@@ -33,7 +34,7 @@ router.get('/new', function (req, res) {
 router.get('/edit/:id', function (req, res) {
     let celebritiesIndex = Number(req.params.id);
     Celebrity.findByPk(celebritiesIndex)
-        .then(function (celebrity) {
+        .then(function(celebrity) {
             if (celebrity) {
                 celebrity = celebrity.toJSON();
                 res.render('celebrities/edit', { celebrity });
@@ -43,7 +44,7 @@ router.get('/edit/:id', function (req, res) {
                 res.render('404', { message: 'celebrities does not exist' });
             }
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log('ERROR', error);
         });
 
@@ -55,7 +56,7 @@ router.get('/:id', function (req, res) {
     let celebrityIndex = Number(req.params.id);
     console.log('IS THIS A NUMBER?', celebrityIndex);
     Celebrity.findByPk(celebrityIndex)
-        .then(function (celebrity) {
+        .then(function(celebrity) {
             if (celebrity) {
                 celebrity = celebrity.toJSON();
                 console.log('IS THIS A celebrity?', celebrity);
@@ -82,12 +83,12 @@ router.post('/', function (req, res) {
         dob: req.body.dob,
         sign_name: req.body.sign_name
     })
-        .then(function (newCelebrity) {
+        .then(function(newCelebrity) {
             console.log('NEW celebrities', newCelebrity.toJSON());
             newCelebrity = newCelebrity.toJSON();
             res.redirect(`/celebrities/${newCelebrity.id}`);
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log('ERROR', error);
             res.render('404', { message: 'celebrities was not added please try again...' });
         });
@@ -105,11 +106,11 @@ router.put('/:id', function (req, res) {
         dob: req.body.dob,
         sign_name: req.body.sign_name
     }, { where: { id: celebrityIndex } })
-        .then(function (response) {
+        .then(function(response) {
             console.log('AFTER UPDATE', response);
             res.redirect(`/celebrities/${celebrityIndex}`);
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log('ERROR', error);
             res.render('404', { message: 'Update was not successful. Please try again.' })
         });
@@ -122,14 +123,16 @@ router.delete('/:id', function (req, res) {
     console.log('ID HERE', req.params.id);
     let celebrityIndex = Number(req.params.id);
     Celebrity.destroy({ where: { id: celebrityIndex } })
-        .then(function (response) {
+        .then(function(response) {
             console.log('CELEBRITY DELETED', response);
             res.redirect('/celebrities');
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log('ERROR', error);
             res.render('404', { message: 'celebrities was not deleted, please try again...' });
         })
 });
+
+
 
 module.exports = router;
