@@ -11,10 +11,10 @@ const { Celebrity } = require('../models');
  * GET ROUTES
  * */
 // /celebrities route
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
     // get all celebrities
     Celebrity.findAll()
-        .then(function(celebrityList) {
+        .then(function (celebrityList) {
             console.log('FOUND ALL celebrities', celebrityList);
             // res.json({ celebrities: celebritiesList });
             res.render('celebrities/index', { celebrities: celebrityList })
@@ -33,7 +33,7 @@ router.get('/new', function (req, res) {
 router.get('/edit/:id', function (req, res) {
     let celebritiesIndex = Number(req.params.id);
     Celebrity.findByPk(celebritiesIndex)
-        .then(function(celebrity) {
+        .then(function (celebrity) {
             if (celebrity) {
                 celebrity = celebrity.toJSON();
                 res.render('celebrities/edit', { celebrity });
@@ -55,7 +55,7 @@ router.get('/:id', function (req, res) {
     let celebrityIndex = Number(req.params.id);
     console.log('IS THIS A NUMBER?', celebrityIndex);
     Celebrity.findByPk(celebrityIndex)
-        .then(function(celebrity) {
+        .then(function (celebrity) {
             if (celebrity) {
                 celebrity = celebrity.toJSON();
                 console.log('IS THIS A celebrity?', celebrity);
