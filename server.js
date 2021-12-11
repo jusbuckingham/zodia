@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const methodOverride = require('method-override');
 const layouts = require('express-ejs-layouts');
 const app = express();
 const flash = require('connect-flash');
@@ -10,6 +11,7 @@ const isLoggedIn = require('./middleware/isLoggedIn');
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log(SECRET_SESSION);
 
+app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 
 app.use(require('morgan')('dev'));
