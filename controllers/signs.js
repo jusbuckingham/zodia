@@ -143,7 +143,7 @@ router.delete('/:id', function(req, res) {
 //     params: {sign: 'scorpio', day: 'today'},
 //     headers: {
 //       'x-rapidapi-host': 'sameer-kumar-aztro-v1.p.rapidapi.com',
-//       'x-rapidapi-key': '3d143eff77msh6039e0b14e7fccfp1c7584jsn25fe684757ac'
+//       'x-rapidapi-key': ''
 //     }
 //   };
   
