@@ -7,11 +7,9 @@
 
 ## Screenshots
 
-## Models 
+## ERD & WIREFRAME
 ![Getting Started](./img/zodia_erd.png)
-
-img/wireframe2.png
-
+![Getting Started](./img/wireframe2.png)
 
 ## USER STORIES
 ### As a user
