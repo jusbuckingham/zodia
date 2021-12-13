@@ -1,9 +1,8 @@
 # Zodia
-
+a hub for all thing Zodiac!
 
 ## Purpose of this application
-
-
+To provide important information about Zodiac signs.
 
 ## Screenshots
 
