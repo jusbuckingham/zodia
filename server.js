@@ -7,6 +7,8 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const axios = require("axios").default;
+let API_URL = "https://sameer-kumar-aztro-v1.p.rapidapi.com/";
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log(SECRET_SESSION);
@@ -50,6 +52,10 @@ app.get('/profile', isLoggedIn, (req, res) => {
 app.use('/auth', require('./controllers/auth'));
 app.use('/celebrities', require('./controllers/celebrities'));
 app.use('/signs', require('./controllers/signs'));
+
+//3rd party api
+
+
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {

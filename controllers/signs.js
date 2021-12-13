@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const axios = require("axios").default;
 const { Sign } = require('../models');
 
 /**
@@ -134,25 +135,24 @@ router.delete('/:id', function(req, res) {
     })
 });
 
+// 3rd party api
+// app.get('/', function(req, res) {
+// var options = {
+//     method: 'POST',
+//     url: 'https://sameer-kumar-aztro-v1.p.rapidapi.com/',
+//     params: {sign: 'scorpio', day: 'today'},
+//     headers: {
+//       'x-rapidapi-host': 'sameer-kumar-aztro-v1.p.rapidapi.com',
+//       'x-rapidapi-key': '3d143eff77msh6039e0b14e7fccfp1c7584jsn25fe684757ac'
+//     }
+//   };
+  
+//   axios.request(options).then(function (response) {
+//       console.log(response.data);
+//   }).catch(function (error) {
+//       console.error(error);
+//   })
+
+// });
+
 module.exports = router;
-
-
-
-// router.create({
-//     sign_name: 'Aries',
-//     description: '(Latin for "ram") is the first astrological sign in the zodiac, spanning the first 30 degrees of celestial longitude, and originates from the constellation of the same name. Under the tropical zodiac, the Sun transits this sign from approximately March 20 to April 21 each year. This time duration is exactly the first month of the Solar Hijri calendar (Arabic Hamal/Persian Farvardin/Wray).',
-//     background: 'Aries is the first fire sign in the zodiac, the other fire signs being Leo and Sagittarius. Individuals born between these dates, depending on which system of astrology they subscribe to, may be called Arians or Ariens.  The color for Aries is red.  In astrology, Aries is the cardinal sign of the fire trigon. It is one of the six positive signs.',
-//     dates: 'March 20 - April 19'
-// })
-// .then(function(newSign){
-//     console.log('NEW SIGN', newSign.toJSON());
-// })
-// .catch(function(error) {
-//     console.log('ERROR', error);
-// })
-
-
-
-
-
-
