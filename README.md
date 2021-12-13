@@ -8,6 +8,8 @@
 ## Screenshots
 
 ## Models 
+/Users/jusbuckingham/Desktop/SEI-1025/unit-2/project/zodia/img/zodia_erd.png
+
 
 
 ## USER STORIES

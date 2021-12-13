@@ -13,9 +13,11 @@ let API_URL = "https://sameer-kumar-aztro-v1.p.rapidapi.com/";
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log(SECRET_SESSION);
 
-app.use(methodOverride('_method'));
+
 app.set('view engine', 'ejs');
 
+app.use(require('axios'));
+app.use(methodOverride('_method'));
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
