@@ -4,8 +4,6 @@ a hub for all thing Zodiac!
 ## Purpose of this application
 To provide important information about Zodiac signs.
 
-## Screenshots
-
 ## ERD & WIREFRAME
 ![Getting Started](./img/zodia_erd.png)
 ![Getting Started](./img/wireframe2.png)
