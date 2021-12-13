@@ -54,20 +54,21 @@ app.use('/celebrities', require('./controllers/celebrities'));
 app.use('/signs', require('./controllers/signs'));
 
 //3rd party api
-app.get('/', function(req, res) {
-  var qs = {
-    params: {
-      s: 'Scorpio',
-      apikey: 'YOUR-KEY-HERE'
-    }
-  };
+// var options = {
+//   method: 'POST',
+//   url: 'https://sameer-kumar-aztro-v1.p.rapidapi.com/',
+//   params: {sign: 'scorpio', day: 'today'},
+//   headers: {
+//     'x-rapidapi-host': 'sameer-kumar-aztro-v1.p.rapidapi.com',
+//     'x-rapidapi-key': ''
+//   }
+// };
 
-  axios.get('https://sameer-kumar-aztro-v1.p.rapidapi.com/', qs)
-    .then(function (response) {
-      // handle success
-      console.log(response.data);
-    })
-});
+// axios.request(options).then(function (response) {
+// 	console.log(response.data);
+// }).catch(function (error) {
+// 	console.error(error);
+// });
 
 
 const PORT = process.env.PORT || 3000;

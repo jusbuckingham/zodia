@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,66 +10,45 @@
     <script src="https://kit.fontawesome.com/7dc3015a44.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="../css/cards.css">
-  </head>
+</head>
 
-  <body>
-
-    <!-- START NAV -->
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <img src="https://imgr.search.brave.com/u9n7sRNDOQ5Fjc7xr5D1Oq1jBGjjM6JL43okxHrLqds/fit/1200/693/ce/1/aHR0cHM6Ly93d3cu/cXVpemV4cG8uY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIw/LzEwL3ExLTIuanBn" alt="Logo">
-          </a>
-          <span class="navbar-burger burger" data-target="navbarMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
-        <div id="navbarMenu" class="navbar-menu">
-          <div class="navbar-end">
-            <a class="navbar-item is-active">
-                <li><a href="./signs">Signs</a></li>
-               
-            </a>
-            <a class="navbar-item">
-                <li><a href="./celebrities/">Celebrities</a></li>
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!-- END NAV -->
+<body>
 
     <div class="container">
-      <div class="section">
-        <div class="columns">
-          <div class="column has-text-centered">
-            <h1 class="title" style="color: ghostwhite;">ZODIA | CELEBRITIES</h1><br>
-          </div>
-        </div>
-        <div id="app" class="row columns is-multiline">
-            <body>
-                <h1>Celebrities</h1>
-    <a href="/celebrities">View Celebrities</a>
-    <h1><%= celebrity.name %></h1>
-    <h2><%= celebrity.dob %> </h2>
-    <h3><%= celebrity.sign_name %> </h3>
-    <a href="/celebrities/edit/<%= celebrity.id %>">Edit</a>
+        <div class="section">
+            <div class="columns">
+                <div class="column has-text-centered">
+                    <h1 class="title" style="color: ghostwhite;">ZODIA | CELEBRITIES</h1><br>
+                </div>
+            </div>
+            <div id="app" class="row columns is-multiline">
 
-    <form method="POST" action="/celebrities/<%= celebrity.id %>/?_method=DELETE">
-        <input type="submit" value="Delete">
-    </form>
-            </body>
+                <body>
+                    <h1>Celebrities</h1>
+                    <a href="/celebrities">View Celebrities</a>
+                    <h1>
+                        <%= celebrity.name %>
+                    </h1>
+                    <h2>
+                        <%= celebrity.dob %>
+                    </h2>
+                    <h3>
+                        <%= celebrity.sign_name %>
+                    </h3>
+                    <a href="/celebrities/edit/<%= celebrity.id %>">Edit</a>
+
+                    <form method="POST" action="/celebrities/<%= celebrity.id %>/?_method=DELETE">
+                        <input type="submit" value="Delete">
+                    </form>
+                </body>
+            </div>
         </div>
-      </div>
     </div>
     <footer class="footer">
-      <div class="container">
-        <div class="content has-text-centered">
+        <div class="container">
+            <div class="content has-text-centered">
+            </div>
         </div>
-      </div>
     </footer>
 
     <script src="../js/cardsData.js"></script>
@@ -84,20 +63,23 @@
       })
 
     </script> -->
-  </body>
+</body>
 
 </html>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celebrities</title>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
