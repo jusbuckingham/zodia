@@ -8,7 +8,6 @@ const session = require('express-session');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const axios = require("axios").default;
-let API_URL = "https://sameer-kumar-aztro-v1.p.rapidapi.com/";
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log(SECRET_SESSION);
@@ -16,7 +15,6 @@ console.log(SECRET_SESSION);
 
 app.set('view engine', 'ejs');
 
-app.use(require('axios'));
 app.use(methodOverride('_method'));
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
@@ -56,7 +54,20 @@ app.use('/celebrities', require('./controllers/celebrities'));
 app.use('/signs', require('./controllers/signs'));
 
 //3rd party api
+app.get('/', function(req, res) {
+  var qs = {
+    params: {
+      s: 'Scorpio',
+      apikey: 'YOUR-KEY-HERE'
+    }
+  };
 
+  axios.get('https://sameer-kumar-aztro-v1.p.rapidapi.com/', qs)
+    .then(function (response) {
+      // handle success
+      console.log(response.data);
+    })
+});
 
 
 const PORT = process.env.PORT || 3000;
