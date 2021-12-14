@@ -12,4 +12,4 @@ To provide a social hub about Zodiac information.
 ### As a user
 - Who: Those that want horoscopes.
 - What: Being able to see horoscope info.
-- Why: Because they're interested.add
+- Why: Because they're interested.
