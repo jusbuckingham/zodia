@@ -11,5 +11,5 @@ To provide a social hub about Zodiac information.
 ## USER STORIES
 ### As a user
 - Who: Those that want horoscopes.
-- What: Being able to see horoscope info.
+- What: Being able to see information relevant to Zodiac signs.
 - Why: Because they're interested.
