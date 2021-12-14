@@ -2,7 +2,7 @@
 A social hub for all things Zodiac!  See here --> https://zodia-app.herokuapp.com/
 
 ## Purpose of this application
-To provide a social hub about Zodiac information.  This app allows you to create/read/update/delete thie hub of zodiac information.
+To provide a social hub for all things Zodiac related.  This app allows you to CREATE-READ-UPDATE-DELETE the hub of zodiac information.
 
 ## How does it work?
 Zodia is a Node.js Express application that uses Sequelize to connect to a Postgres SQL database.  The following dependencies were used:
