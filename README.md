@@ -28,10 +28,15 @@ Zodia is a Node.js Express application that uses Sequelize to connect to a Postg
     "unsplash-js": "^7.0.15"
   }, 
   ```
-  
+
 ## Screenshots
+### Front Page
 ![Front Page](./img/zodia-front-page.png)
+
+### Log In
 ![Log In](./img/zodia-log-in.png)
+
+### Celebrities
 ![Celebrities](./img/zodia-celebrities.png)
 
 ## ERD & WIREFRAME
@@ -43,3 +48,5 @@ Zodia is a Node.js Express application that uses Sequelize to connect to a Postg
 - Who: Those that want a social hub for Zodiac information.
 - What: Being able to see information relevant to Zodiac signs.
 - Why: Because they're interested.
+
+## Code Snippets
