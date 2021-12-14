@@ -36,7 +36,8 @@ Zodia is a Node.js Express application that uses Sequelize to connect to a Postg
 ![Log In](./img/zodia-log-in.png)
 ### Celebrities
 ![Celebrities](./img/zodia-celebrities.png)
-### ERD & WIREFRAME
+
+## ERD & WIREFRAME
 ![ERD](./img/zodia_erd.png)
 ![Wireframe](./img/wireframe2.png)
 
