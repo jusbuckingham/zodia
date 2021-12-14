@@ -10,6 +10,6 @@ To provide a social hub about Zodiac information.
 
 ## USER STORIES
 ### As a user
-- Who: Those that want horoscopes.
+- Who: Those that want a social hub for Zodiac information.
 - What: Being able to see information relevant to Zodiac signs.
 - Why: Because they're interested.
