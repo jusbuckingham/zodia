@@ -42,10 +42,15 @@ Zodia is a Node.js Express application that uses Sequelize to connect to a Postg
 ![Wireframe](./img/wireframe2.png)
 
 ## USER STORIES
-### As a user
-- Who: Those that want a social hub for Zodiac information.
-- What: Being able to see information relevant to Zodiac signs.
-- Why: Because they're interested.
+### As a user I want to...
+1. Create an account/log in.
+2. View both existing records of Zodiac 'signs' and 'celebrities'.
+3. Be able to to edit or add new 'signs' and/or 'celebrities'.
+
+### Additional details
+- Who is this for: Zodiac enthusiasts.
+- What is this for: To be able to enjoy and contribute to the Zodia hub.
+- Why: To build a community around Zodiac enthusiasts.
 
 ## Code Snippets
 ### Celebrities Get Route
