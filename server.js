@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 
 // Add this above /auth controllers
 app.get('/profile', isLoggedIn, (req, res) => {
-  const { id, name, email } = req.user.get(); 
+  const { id, name, email } = req.user.get();
   res.render('profile', { id, name, email });
 });
 
@@ -57,7 +57,7 @@ app.use('/signs', require('./controllers/signs'));
 // var options = {
 //   method: 'POST',
 //   url: 'https://sameer-kumar-aztro-v1.p.rapidapi.com/',
-//   params: {sign: 'scorpio', day: 'today'},
+//   params: { sign: 'scorpio', day: 'today' },
 //   headers: {
 //     'x-rapidapi-host': 'sameer-kumar-aztro-v1.p.rapidapi.com',
 //     'x-rapidapi-key': ''
@@ -65,11 +65,10 @@ app.use('/signs', require('./controllers/signs'));
 // };
 
 // axios.request(options).then(function (response) {
-// 	console.log(response.data);
+//   console.log(response.data);
 // }).catch(function (error) {
-// 	console.error(error);
+//   console.error(error);
 // });
-
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {

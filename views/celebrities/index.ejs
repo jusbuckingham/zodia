@@ -33,8 +33,7 @@
                 <a href="/celebrities/<%= a.id %>">View</a>
                 <hr>
                 <% } %>
-                  <a href="/celebrities/new/">Add Celebrity</a>
-                  <a href="./signs"> Goto Signs</a>
+
         </body>
       </div>
     </div>
@@ -42,22 +41,12 @@
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
+        <a href="/celebrities/new/">Add New Celebrity</a><br><br>
+        <a href="/signs/"> See All Signs</a>
       </div>
     </div>
   </footer>
 
-  <script src="../js/cardsData.js"></script>
-
-  <!-- Using Vue to populate cards to reduce redundant code -->
-  <!-- <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        cardData: cardsData
-      }
-    }) -->
-
-  </script>
 </body>
 
 </html>

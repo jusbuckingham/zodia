@@ -1,5 +1,5 @@
 # Zodia
-a hub for all thing Zodiac!
+a hub for all things Zodiac!
 
 ## Purpose of this application
 To provide important information about Zodiac signs.

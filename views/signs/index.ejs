@@ -23,7 +23,6 @@
         </div>
       </div>
       <div id="app" class="row columns is-multiline">
-
         <body>
           <% for( let index=0; index < signs.length; index++ ) { %>
             <% let a=signs[index]; %>
@@ -34,8 +33,6 @@
                 <a href="/signs/<%= a.id %>">View Sign</a>
                 <hr>
                 <% } %>
-                  <a href="/signs/new/">Add Sign</a>
-                  <a href="./celebrities/">Goto Celebrities</a>
         </body>
       </div>
     </div>
@@ -43,37 +40,11 @@
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
+        <a href="/signs/new/">Add New Sign</a><br><br>
+        <a href="/celebrities/">See All Celebrities</a>
       </div>
     </div>
   </footer>
-
-  <script src="../js/cardsData.js"></script>
-
-  <!-- Using Vue to populate cards to reduce redundant code -->
-  <!-- <script>
-      var app = new Vue({
-        el: '#app',
-        data: {
-          cardData: cardsData
-        }
-      })
-
-    </script> -->
-</body>
-
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Signs</title>
-</head>
-
-<body>
 
 </body>
 
