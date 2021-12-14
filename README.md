@@ -48,3 +48,40 @@ Zodia is a Node.js Express application that uses Sequelize to connect to a Postg
 - Why: Because they're interested.
 
 ## Code Snippets
+### Celebrities Get Route
+```
+router.get('/', function (req, res) {
+    // get all celebrities
+    Celebrity.findAll()
+        .then(function (celebrityList) {
+            console.log('FOUND ALL celebrities', celebrityList);
+            // res.json({ celebrities: celebritiesList });
+            res.render('celebrities/index', { celebrities: celebrityList })
+        })
+        .catch(function (err) {
+            console.log('ERROR', err);
+            res.json({ message: 'Error occured, please try again....' });
+        });
+});
+```
+### Signs Edit
+```
+router.get('/edit/:id', function (req, res) {
+    let signIndex = Number(req.params.id);
+    Sign.findByPk(signIndex)
+        .then(function (sign) {
+            if (sign) {
+                sign = sign.toJSON();
+                res.render('signs/edit', { sign });
+            } else {
+                console.log('This sign does not exist');
+                // render a 404 page
+                res.render('404', { message: 'sign does not exist' });
+            }
+        })
+        .catch(function (error) {
+            console.log('ERROR', error);
+        });
+
+});
+```
