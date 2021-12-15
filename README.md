@@ -49,7 +49,7 @@ Zodia is a Node.js Express application that uses Sequelize to connect to a Postg
 
 ### Additional details
 - Who this is for: Zodiac enthusiasts.
-- What this is for: To be able to enjoy and contribute to the Zodia hub.
+- What this is for: To enjoy and contribute to the Zodia hub.
 - Why: To build a community around Zodiac enthusiasts.
 
 ## Code Snippets
