@@ -53,23 +53,6 @@ app.use('/auth', require('./controllers/auth'));
 app.use('/celebrities', require('./controllers/celebrities'));
 app.use('/signs', require('./controllers/signs'));
 
-//3rd party api
-// var options = {
-//   method: 'POST',
-//   url: 'https://sameer-kumar-aztro-v1.p.rapidapi.com/',
-//   params: { sign: 'scorpio', day: 'today' },
-//   headers: {
-//     'x-rapidapi-host': 'sameer-kumar-aztro-v1.p.rapidapi.com',
-//     'x-rapidapi-key': ''
-//   }
-// };
-
-// axios.request(options).then(function (response) {
-//   console.log(response.data);
-// }).catch(function (error) {
-//   console.error(error);
-// });
-
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`🎧 You're listening to the smooth sounds of port ${PORT} 🎧`);
